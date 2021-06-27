@@ -51,7 +51,7 @@ y_test = test_loader.dataset.targets[:1000].numpy()
 
 num_test = y_test.shape[0]
 
-y_test_pred = kNN_classify(5, 'M', X_train, y_train, X_test)
+y_test_pred = kNN_classify(9, 'M', X_train, y_train, X_test)
 num_correct = np.sum(y_test_pred == y_test)
 accuracy = float(num_correct) / num_test
 print('Got %d / %d correct => accuracy: %f' % (num_correct, num_test, accuracy))
