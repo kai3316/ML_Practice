@@ -26,7 +26,6 @@ test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
 
 X_train = train_loader.dataset.data
 mean_image = getXmean(X_train)
-print(type(mean_image.reshape((32, 32, 3))))
 plt.imshow(mean_image.reshape((32, 32, 3)).astype(int))
 plt.show()
 X_train = centralized(X_train, mean_image)
@@ -35,7 +34,7 @@ X_test = test_loader.dataset.data[:100]
 X_test = centralized(X_test, mean_image)
 y_test = test_loader.dataset.targets[:100]
 num_test = len(y_test)
-y_test_pred = kNN_classify(6, 'M', X_train, y_train, X_test)  # 这里并没有使用封装好的类
+y_test_pred = kNN_classify(6, 'E', X_train, y_train, X_test)  # 这里并没有使用封装好的类
 num_correct = np.sum(y_test_pred == y_test)
 accuracy = float(num_correct) / num_test
 print('Got %d / %d correct => accuracy: %f' % (num_correct, num_test, accuracy))
