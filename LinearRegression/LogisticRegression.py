@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class LogisticRegressionSelf:
+class LogisticRegression:
 
     def __init__(self):
         """初始化Logistic regression模型"""
@@ -57,3 +57,12 @@ class LogisticRegressionSelf:
     def predict(self, X_predict):
         proba = self.predict_proba(X_predict)
         return np.array(proba > 0.5, dtype='int')
+
+
+if __name__ == '__main__':
+    x = np.array([[1, 2, 4, 6, 8], [2, 3, 4, 5, 7], [3, 5, 5, 5, 7]])
+    y = np.array([0, 0, 1])
+    lr = LogisticRegression()
+    lr.fit(x, y)
+    pred = lr.predict([[1, 2, 6, 5, 7]])
+    print(pred)
